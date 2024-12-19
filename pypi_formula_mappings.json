@@ -280,7 +280,7 @@
     "exclude_packages": ["certifi", "cryptography"]
   },
   "duplicity": {
-    "exclude_packages": ["certifi", "cryptography"],
+    "exclude_packages": ["certifi"],
     "extra_packages": ["python-novaclient>18", "stone==3.2.1"]
   },
   "dvc": {
@@ -368,7 +368,7 @@
   },
   "gnuradio": {
     "extra_packages": [
-      "click", "click-plugins", "jsonschema", "lxml", "mako",
+      "click", "jsonschema", "lxml", "mako",
       "packaging", "pygccxml", "pyyaml", "setuptools"
     ]
   },
@@ -401,6 +401,9 @@
   },
   "grokmirror": {
     "exclude_packages": ["certifi"]
+  },
+  "gsan": {
+    "exclude_packages": ["cryptography"]
   },
   "gyb": {
     "package_name": "",

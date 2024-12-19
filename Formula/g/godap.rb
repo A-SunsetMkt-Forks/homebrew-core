@@ -1,17 +1,17 @@
 class Godap < Formula
   desc "Complete TUI (terminal user interface) for LDAP"
   homepage "https://github.com/Macmod/godap"
-  url "https://github.com/Macmod/godap/archive/refs/tags/v2.10.1.tar.gz"
-  sha256 "3d34769229bd3e21fe6c3230fad1f593461d01ffe38e0aea4f0970095e7e5318"
+  url "https://github.com/Macmod/godap/archive/refs/tags/v2.10.3.tar.gz"
+  sha256 "c2b431067b5f1baddd8d8a08f99a321ea66a6af4ecfcce65b044571f4f09faf7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9ff4270c77241a1cd5177538df5fa7f2a7ce3e23a902e373aee1136fc22a146"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9ff4270c77241a1cd5177538df5fa7f2a7ce3e23a902e373aee1136fc22a146"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9ff4270c77241a1cd5177538df5fa7f2a7ce3e23a902e373aee1136fc22a146"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e312c0ac61c56b2fa3bf6ea92f9fd344ce57077e7fc8baee1ef9ecea8bc8d4f"
-    sha256 cellar: :any_skip_relocation, ventura:       "2e312c0ac61c56b2fa3bf6ea92f9fd344ce57077e7fc8baee1ef9ecea8bc8d4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d1863505c134ae0a39cac085826522a2b31c313a3892bbe333f4c395771af02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "067dd8fc65947b6384bff0a92a706de1455cd11236ac247f6c8e2122c9f66ed5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "067dd8fc65947b6384bff0a92a706de1455cd11236ac247f6c8e2122c9f66ed5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "067dd8fc65947b6384bff0a92a706de1455cd11236ac247f6c8e2122c9f66ed5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6c31f11bd059f923724d4a00c889e6ff651da748e4afb568a5dae439b687115b"
+    sha256 cellar: :any_skip_relocation, ventura:       "6c31f11bd059f923724d4a00c889e6ff651da748e4afb568a5dae439b687115b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8680a9e922ed08185e0b8449cfeca60e0f0ed9df9a0916f0059f7b6ec6baf73"
   end
 
   depends_on "go" => :build

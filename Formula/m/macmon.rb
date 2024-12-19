@@ -1,15 +1,15 @@
 class Macmon < Formula
   desc "Sudoless performance monitoring for Apple Silicon processors"
   homepage "https://github.com/vladkens/macmon"
-  url "https://github.com/vladkens/macmon/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "68fe17e534846e94d43539eba9ef55aa7ad0887ae2d805c1029a639e476b53e0"
+  url "https://github.com/vladkens/macmon/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "ef1fcd6096ef6f6d4f8066eb6049a4b264f6af1efe257050a51c37eba08c3eee"
   license "MIT"
   head "https://github.com/vladkens/macmon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f77e3d5f6eb464102626d590520d175fc6fc29ec416abfbf58cd13c46e7e01c2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a147275fad2dc8144ae79ff6ba2a9b475054df1268a6ec7d016dc91b8b374b9a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e5c39d15ed9bafd987ddcfaa895ac9402a35758a97b0dd0767acc5cfff8ff39d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d447feffe80bb1fb0bcd49262c6edcbd8c93774564e8198c8a558ff8c27e1e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c307df1059b812bded3c65daa2cea2a6527934a59ed87e5dbdddf198c074064"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2dbd2ed6341b2dc4580f72d3f7afe1e8c5b6d5024ab340814e17776f4bad4f68"
   end
 
   depends_on "rust" => :build
@@ -21,7 +21,7 @@ class Macmon < Formula
   end
 
   test do
-    # cannot be functionally tested on CI as it lacks of system profile for processor
     assert_match version.to_s, shell_output("#{bin}/macmon --version")
+    assert_match "Failed to get channels", shell_output("#{bin}/macmon debug 2>&1", 1)
   end
 end
