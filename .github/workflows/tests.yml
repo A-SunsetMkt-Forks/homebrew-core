@@ -204,7 +204,7 @@ jobs:
         run: brew determine-test-runners "$TESTING_FORMULAE" "$DELETED_FORMULAE"
 
   tests:
-    needs: [tap_syntax, setup_tests, setup_runners]
+    needs: [tap_syntax, formulae_detect, setup_tests, setup_runners]
     if: >
       github.event_name == 'pull_request' &&
       !fromJson(needs.setup_tests.outputs.syntax-only) &&
@@ -232,8 +232,19 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: ${{ matrix.cleanup }}
 
-      - run: brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+      - name: Test formulae
         id: brew-test-bot-formulae
+        run: |
+          # shellcheck disable=SC2086
+          brew test-bot $TEST_BOT_FORMULAE_ARGS \
+            --testing-formulae="$TESTING_FORMULAE" \
+            --added-formulae="$ADDED_FORMULAE" \
+            --deleted-formulae="$DELETED_FORMULAE"
+        env:
+          TEST_BOT_FORMULAE_ARGS: ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+          TESTING_FORMULAE: ${{ needs.formulae_detect.outputs.testing_formulae }}
+          ADDED_FORMULAE: ${{ needs.formulae_detect.outputs.added_formulae }}
+          DELETED_FORMULAE: ${{ needs.formulae_detect.outputs.deleted_formulae }}
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Post-build steps
@@ -320,7 +331,7 @@ jobs:
         run: brew determine-test-runners --dependents --eval-all "$TESTING_FORMULAE"
 
   test_deps:
-    needs: [tap_syntax, setup_dep_tests, setup_dep_runners, tests]
+    needs: [tap_syntax, formulae_detect, setup_dep_tests, setup_dep_runners, tests]
     if: >
       (success() ||
       (failure() &&
@@ -355,7 +366,15 @@ jobs:
           cleanup: ${{ matrix.cleanup }}
           download-bottles: true
 
-      - run: brew test-bot ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }} --testing-formulae="$TESTING_FORMULAE"
+      - name: Test dependents
+        run: |
+          # shellcheck disable=SC2086
+          brew test-bot $TEST_BOT_DEPENDENTS_ARGS \
+            --testing-formulae="$TESTING_FORMULAE" \
+            --tested-formulae="$TESTED_FORMULAE"
+        env:
+          TEST_BOT_DEPENDENTS_ARGS: ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }}
+          TESTED_FORMULAE: ${{ needs.formulae_detect.outputs.testing_formulae }}
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Steps summary and cleanup

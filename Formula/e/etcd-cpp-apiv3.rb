@@ -4,15 +4,15 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 19
+  revision 20
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "70015fab22dae7d329ae91b5d0250d858b9ccf40ab72bbc2bf2da0f7c8ee7f3b"
-    sha256 cellar: :any,                 arm64_sonoma:  "bd34f08f591a79b4900527c50893b53c2ce6c989c5804f8a1ae9839cdb6b981d"
-    sha256 cellar: :any,                 arm64_ventura: "16a834c645392bee0a1327fe6caefe18aadb7e8d25885cfb83183de32e805ad0"
-    sha256 cellar: :any,                 sonoma:        "04b5eb8991359e03507bf1ee905dfc0e45f07ac4e933f92e1b15d5b1421eae4d"
-    sha256 cellar: :any,                 ventura:       "d0989833efd3464806a3fc301e87725b24e3c037b3ce9edef21e9b237d68bff7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "745eb7731ea238c4f2f9b4d1be306dd12daadf5e3d6d26806ab6d0b3882f636a"
+    sha256 cellar: :any,                 arm64_sequoia: "81790c644388268655bf0832b95fa61425d9fb2465cc353971f4428746502709"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b3295f41e772f0e6a17ea35f203752512b5ed71a79cfc181edf6a5c40d4b256"
+    sha256 cellar: :any,                 arm64_ventura: "ce25d5e3826bcb9bdfa948c5653d15aa2da075fddb478568a1c9d375085f3dc8"
+    sha256 cellar: :any,                 sonoma:        "0735e25399a63642870b3bea0f87812b2b8a261f28f9795ab70b4bbee2cbeb64"
+    sha256 cellar: :any,                 ventura:       "ffddc3e2aec7da411644d1bdcd8a788abf95b004dd5d8ec1c9a3c9bfa951a037"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b45ef339bf1b90adf5644cd4378e98d9e75c2d3a3d700e5bf80eaad7dfa075b1"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -69,6 +69,7 @@ class EtcdCppApiv3 < Formula
       target_link_libraries(test_etcd_cpp_apiv3 PRIVATE etcd-cpp-api)
     CMAKE
 
+    ENV.append_path "CMAKE_PREFIX_PATH", Formula["boost@1.85"].opt_prefix
     ENV.delete "CPATH"
     system "cmake", ".", "-Wno-dev", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "."
