@@ -4,20 +4,20 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.7.tar.gz"
   sha256 "c21fcbf970214dd48ee8aa11e6294e16bea86495085315e7b370a84b316d0af9"
   license "GPL-2.0-only"
-  revision 7
+  revision 9
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d990a19419a4c3c879d37e4c30ce9da3a662590d2a2fedbbd509d06a9337b924"
-    sha256 cellar: :any,                 arm64_sonoma:  "db9b31c9b8ad92cdb6e49cd2b9183ced6915011a51f66bc809d65a8a4b5490e3"
-    sha256 cellar: :any,                 arm64_ventura: "c91935364bf84a03f798d29c6965b1180c739b855329239eb2f6fb3c31cadbf6"
-    sha256 cellar: :any,                 sonoma:        "d96272400938261cd9406e70c038e9569a32beaa2a7fb74d942679a10d673aef"
-    sha256 cellar: :any,                 ventura:       "f72a3f4dd29f8ce1b9b75475c8c2b09c8ed997855a5b81d3ac0ce169c5fe4e2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22983429f32b54064a0ab0bc0a1a32a4f91f3669d8590b8ea4f0263027032dc1"
+    sha256 cellar: :any,                 arm64_sequoia: "39fe6a0f55bff703d2eb2841c6dd245f5cf40b3e27a6cc20e5a7ffb4bcc745ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "020434745e3c21a4d337dc14d940fa752cb8c7accb76f4e8101a06300267c79f"
+    sha256 cellar: :any,                 arm64_ventura: "32b144404b8e34c6eb62d4ad2acaed1850c25619a570087ba40928be97bb6157"
+    sha256 cellar: :any,                 sonoma:        "938c8411be67fe522ed70488a7f3d707ed4d87852ec9a8c7ea6943c16acf958f"
+    sha256 cellar: :any,                 ventura:       "acf5ca43511990cbc36e356de87a257440305cd52f4f9b7796e674bde04ec2e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "518f30fc31af9efef2a8c8768f187100f1e1d062ff20c32cd7d9e537b0b30f72"
   end
 
   depends_on "cmake" => :build
   depends_on "abseil"
-  depends_on "boost"
+  depends_on "boost@1.85" # Boost 1.87+ issue: https://github.com/pavel-odintsov/fastnetmon/issues/1027
   depends_on "capnp"
   depends_on "grpc"
   depends_on "hiredis"
@@ -66,30 +66,17 @@ class Fastnetmon < Formula
 
   test do
     cp etc/"fastnetmon.conf", testpath
+    inreplace "fastnetmon.conf", %r{/tmp/(fastnetmon(?:_ipv6)?\.dat)}, "#{testpath}/\\1"
 
-    inreplace testpath/"fastnetmon.conf", "/tmp/fastnetmon.dat", (testpath/"fastnetmon.dat").to_s
-
-    inreplace testpath/"fastnetmon.conf", "/tmp/fastnetmon_ipv6.dat", (testpath/"fastnetmon_ipv6.dat").to_s
-
-    fastnetmon_pid = fork do
-      exec opt_sbin/"fastnetmon",
-           "--configuration_file",
-           testpath/"fastnetmon.conf",
-           "--log_to_console"
-    end
-
+    pid = spawn opt_sbin/"fastnetmon", "--configuration_file", testpath/"fastnetmon.conf", "--log_to_console"
     sleep 60
+    sleep 30 if OS.mac? && Hardware::CPU.intel?
 
     assert_path_exists testpath/"fastnetmon.dat"
-
-    ipv4_stats_output = (testpath/"fastnetmon.dat").read
-    assert_match("Incoming traffic", ipv4_stats_output)
-
     assert_path_exists testpath/"fastnetmon_ipv6.dat"
-
-    ipv6_stats_output = (testpath/"fastnetmon_ipv6.dat").read
-    assert_match("Incoming traffic", ipv6_stats_output)
+    assert_match "Incoming traffic", (testpath/"fastnetmon.dat").read
+    assert_match "Incoming traffic", (testpath/"fastnetmon_ipv6.dat").read
   ensure
-    Process.kill "SIGTERM", fastnetmon_pid
+    Process.kill "SIGTERM", pid
   end
 end

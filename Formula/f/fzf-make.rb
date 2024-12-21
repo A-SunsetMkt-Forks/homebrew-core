@@ -1,18 +1,18 @@
 class FzfMake < Formula
   desc "Fuzzy finder with preview window for make, pnpm, & yarn"
   homepage "https://github.com/kyu08/fzf-make"
-  url "https://github.com/kyu08/fzf-make/archive/refs/tags/v0.47.0.tar.gz"
-  sha256 "93199143b5364e4606aeb6859ff81e28d080d53250534cd60d2d5badfa96c8c8"
+  url "https://github.com/kyu08/fzf-make/archive/refs/tags/v0.50.0.tar.gz"
+  sha256 "8f8f516025ff0ef61edb48b1a4f4c578e7560eaa3320aa398f9802e6f6fb6800"
   license "MIT"
   head "https://github.com/kyu08/fzf-make.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76a75a5a13c8634a83f88663c0e94b4119f16e82296c4dbabd729507b3c31005"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e769a89d54edb24a60320fa9dccf649e716015682f77cc66388b7b379077e24e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5a8a9eee75f5fe27df80f7bab64ec129cfd317ecc48c99ee6d27d945a8a79294"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a2bdbc641e0b94b05182c26ab1e77356cc4d5030ce4ba1f3db9f6cc2f3dc467"
-    sha256 cellar: :any_skip_relocation, ventura:       "90fc69701b6592e7a2216b6e78a79f3237f487883edca60899de097b97f77a9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a4293cb6cc8f2502e4fd0b0de53422d1230c459c47243810f874bba7bc881d9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b6236a5447249cd8d8454b62c31ac7c679992b0d3e6688e6034f6d62f22de0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb7e3e083719a0f90b341c17461d919ecfdb373901f26e9bc92070196bb6eb2d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "81f8d729d27e69dc69dbe5c4450ad328aa53755898c95c4b2a34dbe3c8ef7c15"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3d7e5db623836b9e91a543857659cdeb83ce3cd2ffc3b64bbadac316bdc7d275"
+    sha256 cellar: :any_skip_relocation, ventura:       "4d58e288fd3a4d670ac037dea41f275829511806f8a3176f41bdf71d825721e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a512c481f47d753959f477d6083d5c53f6e18bf0e9592a2200a6596fc207c4df"
   end
 
   depends_on "rust" => :build

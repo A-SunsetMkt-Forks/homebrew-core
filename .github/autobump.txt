@@ -185,6 +185,7 @@ awslogs
 axel
 azcopy
 azure-core-cpp
+azurehound
 b2-tools
 babel
 babl
@@ -238,6 +239,7 @@ beautysh
 bed
 bee
 bench
+bender
 benthos
 berglas
 bettercap
@@ -319,6 +321,7 @@ bwidget
 byacc
 byobu
 byteman
+bzip3
 bzt
 c-ares
 c-blosc
@@ -365,8 +368,10 @@ cargo-llvm-lines
 cargo-make
 cargo-nextest
 cargo-outdated
+cargo-public-api
 cargo-release
 cargo-run-bin
+cargo-shuttle
 cargo-udeps
 cargo-watch
 cargo-zigbuild
@@ -766,6 +771,7 @@ drogon
 drone-cli
 dropbear
 druid
+dry
 dscanner
 dsda-doom
 dsq
@@ -1123,6 +1129,7 @@ gjs
 glances
 glassfish
 glasskube
+glaze
 gleam
 glfw
 glib-networking
@@ -1150,6 +1157,7 @@ gnupg@2.2
 gnuplot
 gnutls
 go
+go-blueprint
 go-camo
 go-critic
 go-feature-flag-relay-proxy
@@ -1179,6 +1187,7 @@ googletest
 goose
 gopass
 gopass-jsonapi
+gopeed
 gopls
 goplus
 gor
@@ -1240,6 +1249,7 @@ groovysdk
 grpc
 grpc-swift
 grype
+gsan
 gsettings-desktop-schemas
 gsl
 gsmartcontrol
@@ -1300,6 +1310,7 @@ hermit
 hexo
 hexyl
 hfstospell
+hgrep
 hickory-dns
 hidapi
 highlight
@@ -1424,6 +1435,7 @@ jena
 jenkins
 jenkins-job-builder
 jenkins-lts
+jerryscript
 jet
 jetty
 jetty-runner
@@ -1469,6 +1481,7 @@ juju
 julia
 jupyterlab
 just
+jwt-cli
 jxl-oxide
 jython
 k2tf
@@ -1515,6 +1528,7 @@ knot
 knot-resolver
 ko
 kompose
+kool
 kops
 kor
 kotlin
@@ -1575,6 +1589,7 @@ langgraph-cli
 languagetool
 lanraragi
 lastpass-cli
+lastz
 laszip
 latex2html
 latexdiff
@@ -1594,6 +1609,7 @@ leakcanary-shark
 lean-cli
 leapp-cli
 leetup
+legba
 legitify
 lego
 leiningen
@@ -1665,6 +1681,8 @@ libhandy
 libheif
 libhubbub
 libical
+libice
+libiconv
 libidn2
 libimagequant
 libimobiledevice-glue
@@ -1702,6 +1720,7 @@ libopenmpt
 liboqs
 liborigin
 libosinfo
+libp11
 libpanel
 libpano
 libpcap
@@ -1733,6 +1752,7 @@ libsecret
 libserialport
 libshumate
 libslirp
+libsm
 libsndfile
 libsolv
 libsoundio
@@ -1771,8 +1791,10 @@ libvisio
 libwbxml
 libwpe
 libx11
+libxau
 libxaw3d
 libxcursor
+libxcvt
 libxdmcp
 libxext
 libxi
@@ -1784,9 +1806,13 @@ libxmlb
 libxmlsec1
 libxmu
 libxo
+libxrender
+libxshmfence
 libxslt
 libxt
+libxv
 libxvmc
+libxxf86vm
 libzim
 libzzip
 license-eye
@@ -1797,6 +1823,7 @@ lighthouse
 lightning
 lighttpd
 lima
+limbo
 link-grammar
 linkerd
 links
@@ -1910,6 +1937,7 @@ mdbook
 mdcat
 mdless
 mdsh
+mdz
 mdzk
 mediaconch
 mediamtx
@@ -1933,6 +1961,7 @@ metals
 metricbeat
 mfem
 mgba
+mgis
 micro
 micromamba
 micronaut
@@ -1972,6 +2001,7 @@ mlpack
 mlt
 mlx
 mmark
+mmdbctl
 mmseqs2
 mmv
 mockery
@@ -2064,6 +2094,7 @@ neatvi
 nebula
 needle
 neo4j
+neocmakelsp
 neomutt
 neon
 neonctl
@@ -2182,6 +2213,7 @@ onedpl
 onedrive
 onion-location
 onionprobe
+onnxruntime
 ooniprobe
 opa
 opam
@@ -2286,7 +2318,9 @@ pangomm
 papilo
 parallel
 parallel-hashmap
+parca
 pari
+parlay
 parliament
 parquet-cli
 parsedmarc
@@ -2444,6 +2478,7 @@ prqlc
 prr
 prs
 psalm
+pscale
 pspg
 psutils
 psysh
@@ -2496,6 +2531,7 @@ python-yq
 pythran
 pyupgrade
 qbe
+qbec
 qbittorrent-cli
 qbs
 qca
@@ -2570,6 +2606,7 @@ release-it
 remarshal
 remind
 renovate
+replxx
 repo
 reposurgeon
 repren
@@ -2578,6 +2615,7 @@ restic
 restview
 resvg
 retire
+reveal-md
 revive
 rex
 rgbds
@@ -2693,6 +2731,7 @@ scummvm-tools
 scw
 sdb
 sdl2
+sdl2_image
 seal
 seam
 seaweedfs
@@ -2702,6 +2741,7 @@ securefs
 selene
 selenium-server
 semgrep
+sendme
 sentencepiece
 seqkit
 sequin
@@ -2858,6 +2898,7 @@ stackql
 stanc3
 stanford-corenlp
 star
+starlark-rust
 staticcheck
 statix
 stdman
@@ -2914,6 +2955,7 @@ swig
 swtpm
 syft
 symengine
+synchrony
 syncthing
 sysaidmin
 sysdig
@@ -2929,6 +2971,7 @@ tailwindcss
 tailwindcss-language-server
 talhelper
 talisman
+talosctl
 tanka
 taplo
 tarantool
@@ -3031,6 +3074,7 @@ tofuenv
 toipe
 tomcat
 tomcat-native
+tomcat@10
 tomcat@9
 tomee-plume
 tomee-plus
@@ -3042,6 +3086,7 @@ topfew
 topgrade
 topiary
 tor
+totp-cli
 tox
 toxcore
 toxiproxy
@@ -3073,12 +3118,14 @@ tt
 ttdl
 ttyd
 ttyplot
+tuisky
 tup
 twine
 txr
 tygo
 typescript
 typescript-language-server
+typeshare
 typewritten
 typical
 typos-cli
@@ -3134,6 +3181,7 @@ vale
 valgrind
 valijson
 valkey
+vals
 vapor
 vapoursynth
 varnish
@@ -3202,6 +3250,7 @@ vvdec
 vvenc
 wabt
 waffle
+wails
 wakatime-cli
 walk
 wallpaper

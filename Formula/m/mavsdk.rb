@@ -2,8 +2,8 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v2.14.0",
-      revision: "a964028c2213bb5cfdf2b29ed61e0c21c8babca6"
+      tag:      "v2.14.1",
+      revision: "2b98c53af5f5c0ad5686816e85b47090569245a4"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fd5d6731c24d5983667ee99a7588f5d592eb56dea94b5247a3cf538f964baa82"
-    sha256 cellar: :any,                 arm64_sonoma:  "85e0c22b9bb05f36e204dce097c47096c0a7e38a84ff64a6117c5966088c4215"
-    sha256 cellar: :any,                 arm64_ventura: "70bfd7f3b29d3b9e268d423d498f8fdc39323272226db66aae2f29480147a118"
-    sha256 cellar: :any,                 sonoma:        "4ec434c2f2bd0394e697ceeb8b65c5b2f258acbcbe808872967d275f7aa458f4"
-    sha256 cellar: :any,                 ventura:       "93778028e43415d0c9ffd1da5a793e65d49753cfaee1df1fb5033007eb263d13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52d402654c217589353ab704710af02e8c02a91ff0c540c4739e132caa2ad740"
+    sha256 cellar: :any,                 arm64_sequoia: "076965d8a32db4ee773b6baea003912b1180fd45d6d7d34ad10121a63e82dacd"
+    sha256 cellar: :any,                 arm64_sonoma:  "8dc8168f86befeea2051bfa3132f5bb8a6b74b85fa018c897665f557ba692d29"
+    sha256 cellar: :any,                 arm64_ventura: "dd2437a785f69f1e5ea48dafd1961d587a7c0be2e3a3e165f47e2a8896197a24"
+    sha256 cellar: :any,                 sonoma:        "ea68119606e0c77a1689726cfd3aaa2e4f051d698ee6d970d1776593f5b50023"
+    sha256 cellar: :any,                 ventura:       "9b400f94104cd42ac5f5798efe792db2b7b274691b17123149060db7dcdf6f12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fdf62e3ef6e7e13a6e0d5418007b86dd68bde478edcaf9e63926556f3c8abea"
   end
 
   depends_on "cmake" => :build

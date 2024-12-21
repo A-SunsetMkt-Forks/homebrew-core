@@ -1,18 +1,17 @@
 class Rain < Formula
   desc "Command-line tool for working with AWS CloudFormation"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "6cd3dd2466d5a4db2fb8d2043482a77290eed727ec84cc2d532f7cb1abd3cab3"
+  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.20.2.tar.gz"
+  sha256 "b899bc4dcf05b6254fad411e87d8eec6dc4681b84d89f48ba789b5833266ec99"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "669cdd9badbd7cc6cee055360437bfc2c41c2b20ec773a23280f07a205a1a09d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3aa9fc7c5c1cf510ddb2642e3eedde02e280d0877163f14ce773df5db706a80c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f66c6d5c5a1da3cd1109d0606a1f95048c45b167aad73e08ae90e1905eef04b6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5085ee802ec72d38aa8ddbb07b403cb39ef82c352de5e70d8d07f1cd4ffab63d"
-    sha256 cellar: :any_skip_relocation, ventura:       "4012e3e37bd86d13af8ac68fd85551036799b7b71e7c68b04a97b3926653a521"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "069fd2f9c05276aa06cf7c7570abf0073418489e1bc15d218bd7578beba039f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6f23e9b078bf0ca35c57852524f4e331e1822053cbeacf7736d874199a84a42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "894452f9469ca9d28716fc249c51711d4ade5834cc136306eb7b76d92b797272"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d0a7c73392d539c94877d13061279a10659ee1e065d8c4039919869ab2294255"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a81e40b7b8637d15ba03c1a2188bab55ae9acae96f1ee22712f902d98d7024b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "5ed1a26a42c7d8f1da8b49d48e4accfd24ca7f93930ab4e51bee9031ddb35469"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42f5e0ae9f61118f8c37350ee154e55273852dd9a9be5f7fe0f00a03835ac7cb"
   end
 
   depends_on "go" => :build

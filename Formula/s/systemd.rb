@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v256.9.tar.gz"
-  sha256 "9f2bda967a30ec4602e7ea93d565eb43670ca1dffbb808c72758d5f0213508c8"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v257.1.tar.gz"
+  sha256 "375365b9f3718ba5fc2a972445eefcd9e229cc18bffe95818220c2a52efe8ed9"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -30,7 +30,7 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "43742e11f5b18dead0c7988359e4928d17287012e8b3ca058eb08810c4900493"
+    sha256 x86_64_linux: "027cb1c63451188fce00728675692eb4cc2bcf79edae7b23697e98f927c90092"
   end
 
   depends_on "coreutils" => :build
@@ -98,6 +98,7 @@ class Systemd < Formula
       -Dmicrohttpd=disabled
       -Dp11kit=disabled
       -Dpam=disabled
+      -Dshellprofiledir=no
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args

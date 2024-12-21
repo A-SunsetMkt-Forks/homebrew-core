@@ -2,7 +2,7 @@ class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   stable do
@@ -14,16 +14,20 @@ class Pcl < Formula
       url "https://github.com/PointCloudLibrary/pcl/commit/c6bbf02a084a39a02d9e2fc318a59fe2f1ff55c1.patch?full_index=1"
       sha256 "e3af29b8b70ef9697d430a1af969c8501fe597d2cc02025e5f9254a0d6d715cd"
     end
+
+    # Backport fix for Boost 1.87.0
+    patch do
+      url "https://github.com/PointCloudLibrary/pcl/commit/6f64495840c4e5674d542ccf20df96ed12665687.patch?full_index=1"
+      sha256 "8500e79e1e5c8c636bfc72e5f019e9681f45cd5441954b55bbad4fa48999a6e0"
+    end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7a056d0967f7edd1dcdbb11e32c0c8371ea8c0b8f240023f44b389c2b95e76d1"
-    sha256 cellar: :any,                 arm64_ventura:  "25f45fec0e436ebcc1e331877b251782844afc78e28c237bedd7f3ba06cfa75c"
-    sha256 cellar: :any,                 arm64_monterey: "b86c9e27adab7ac013780786c585126d6f0a2d97497600b8731f209177fb9faf"
-    sha256 cellar: :any,                 sonoma:         "c336ac4d50edbfc9196b6736b8796f8ec65a854724f6a974cbec56e4bc2a6533"
-    sha256 cellar: :any,                 ventura:        "2c84f410098d125c7d4ab95b334dba18d8eeb8f6c040f07b3fd79299f3c92355"
-    sha256 cellar: :any,                 monterey:       "f393fce3941f2f7934edcfcd066148ee7e2ba3856d50dd303582a9347eada63a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c54f3593d2d799ca37f2b7f9ef34a1d8f2a4e79930ae49d209343717bf0e2d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "37abc7e6feb7a024c805fdba2457087848b90a88699d768da84818a46c33c855"
+    sha256 cellar: :any,                 arm64_ventura: "313e824687c4a2a315c4f6fcf8e85821cdff51660f0ba6e7b0cb44543e43ec37"
+    sha256 cellar: :any,                 sonoma:        "7988ee6d8f7e730d50bc9cfcfd64e74e0ab1ea55a3bc7c15c0c77a26465aa1db"
+    sha256 cellar: :any,                 ventura:       "39d114190c2d2bdeadfff8a47e69db34bfe902601b87885828c6a05a6028da6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba372ab9258777e2eb046834283f37456849a66b05ca41b8ca6af5e2c8622dae"
   end
 
   depends_on "cmake" => [:build, :test]

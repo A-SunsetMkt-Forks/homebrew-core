@@ -1,17 +1,17 @@
 class Mago < Formula
   desc "Toolchain for PHP to help developers write better code"
   homepage "https://github.com/carthage-software/mago"
-  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.7.tar.gz"
-  sha256 "b98936efc526c05071ae22abf9302daad3689bc41405e1bddaa2ea4df668ef28"
+  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.11.tar.gz"
+  sha256 "ac8d3f98b0d89bd8e8f342ff3c52f679013fb9f432bf0a5af04c7705724e2f2c"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51ebed36f9e7644056896d435d2827597096d3b8f15cd52496a6580119387da7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38ca5ebf9d3a1593bbf21a432ef76775fadd59c279cd5dc00da341b3a28bf761"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b685f719c632ec1a351ba8c99ef1c03994e79bf86e579835d2542228c0ec657"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f23ac62478f280d3008b4685fbb06186b9aff77eaa023ecb7d99a64df578ffe6"
-    sha256 cellar: :any_skip_relocation, ventura:       "cc9a36d92f0acd7eac8614dd7985e8c143d374fb54d8884102c72338ab2ea881"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbcb0b819b00a2745014aa9be1256fefbbf975bbb9779a8eccc43aeca6962395"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50282a3019449486641e569dad605709f6bd99305a398e0a14498888fa2b8a74"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95e1f3e39a04b280c4d4952c75fa22c2bf0c134a7feecc44de9290ed5dfbb184"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8605b83d9c1199f437d4ddca59f1b20e04deaff454858d2fa95523d3cd50746"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04f391a456d5e173635033a0838e68f7e9000440f8c3a42b1d0ab5f5e6eaeff9"
+    sha256 cellar: :any_skip_relocation, ventura:       "8945c937d2954f620c9e57a48e56c570e1a35bd2dcc112e3bdb6ef35516f294e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4caf5c6ca7b25cdd57c2ba9c3a2faeb9ddebf4ef5512e3b584d2218b189752bb"
   end
 
   depends_on "rust" => :build
@@ -24,8 +24,8 @@ class Mago < Formula
     assert_match version.to_s, shell_output("#{bin}/mago --version")
 
     (testpath/"example.php").write("<?php echo 'Hello, Mago!';")
-    output = shell_output("#{bin}/mago lint 2>&1")
-    assert_match " missing `declare(strict_types=1);` statement at the beginning of the file", output
+    output = shell_output("#{bin}/mago lint 2>&1", 1)
+    assert_match " Missing `declare(strict_types=1);` statement at the beginning of the file", output
 
     (testpath/"unformatted.php").write("<?php echo 'Unformatted';?>")
     system bin/"mago", "fmt"

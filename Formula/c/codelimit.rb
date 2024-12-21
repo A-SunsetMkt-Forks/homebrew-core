@@ -3,17 +3,17 @@ class Codelimit < Formula
 
   desc "Your Refactoring Alarm"
   homepage "https://github.com/getcodelimit/codelimit"
-  url "https://files.pythonhosted.org/packages/29/98/1b0daa30392bcb6b99ba70e3b4cc7784a5cef89bf47b8c9f9824452a17d0/codelimit-0.14.0.tar.gz"
-  sha256 "b011d51e3aed55477dc9b0f772ee54dfcf9b44c81a53f109f0c9e72e9b184b96"
+  url "https://files.pythonhosted.org/packages/4a/e0/d05fb77f181e13942e374a713a250a46087be4def5e57a83b3f653c0b9a2/codelimit-0.15.1.tar.gz"
+  sha256 "2172bd0374d091b22ed12cdb9ae7de84da83a00bf615323b13b2987d25690879"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c22050ba877bec136e1b850fd7903882ad31b85e9b9f17572a24027a9ac25551"
-    sha256 cellar: :any,                 arm64_sonoma:  "2c13c75bbbf1c47d88da10334305c707f266a5623629b5abe833a4a689d8efc4"
-    sha256 cellar: :any,                 arm64_ventura: "43ba706d94f440ce3a6621a25be9a14d790dafb9fc011fe5cedcf2d86a6757ec"
-    sha256 cellar: :any,                 sonoma:        "f94db6bc9da95a9e9457132a63b70ff484fa152cb70ee334bf85d75dcd47a811"
-    sha256 cellar: :any,                 ventura:       "a05ace9b77262d1140b84785d535f25b02e43e0984a8c826d698fef5949518fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b066649933899129d749c2c5adbb83dd4e03ec66d7da17ad6a4b34a4d69f37b"
+    sha256 cellar: :any,                 arm64_sequoia: "a1990fcdb071efed19f5ea55f6bdc32282e7e72756b4f95e29b1f324aa33edb3"
+    sha256 cellar: :any,                 arm64_sonoma:  "7ee551600cf20c2f410eecec00acf4c7b8b31153d5894f24f597497e4b8c9d4f"
+    sha256 cellar: :any,                 arm64_ventura: "3400dfbf1a943171310d0790c5831f53c4e5cb6bd24aad4ea841276babf4ba1f"
+    sha256 cellar: :any,                 sonoma:        "9f60ef4ae954657b90eb84d5920233ad72d7df99e7d29686dc8c75bf5053b974"
+    sha256 cellar: :any,                 ventura:       "75de9240086859a388ecca7ed84dab7054888c1efb72cbb18f1a02c4268e5e21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc3ae12941a5c8846c46314633d6bf7ca34d022b9c26f72f0f65f14bab445856"
   end
 
   depends_on "certifi"
@@ -26,18 +26,18 @@ class Codelimit < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/94/c4/3b5a937b16f6c2a0ada842a9066aad0b7a5708427d4a202a07bf09c67cbb/aiohttp-3.11.10.tar.gz"
-    sha256 "b1fc6b45010a8d0ff9e88f9f2418c6fd408c99c211257334aff41597ebece42e"
+    url "https://files.pythonhosted.org/packages/fe/ed/f26db39d29cd3cb2f5a3374304c713fe5ab5a0e4c8ee25a0c45cc6adf844/aiohttp-3.11.11.tar.gz"
+    sha256 "bb49c7f1e6ebf3821a42d81d494f538107610c3a705987f53068546b0e90303e"
   end
 
   resource "aiosignal" do
-    url "https://files.pythonhosted.org/packages/ae/67/0952ed97a9793b4958e5736f6d2b346b414a2cd63e82d05940032f45b32f/aiosignal-1.3.1.tar.gz"
-    sha256 "54cd96e15e1649b75d6c87526a6ff0b6c1b0dd3459f43d9ca11d48c339b68cfc"
+    url "https://files.pythonhosted.org/packages/ba/b5/6d55e80f6d8a08ce22b982eafa278d823b541c925f11ee774b0b9c43473d/aiosignal-1.3.2.tar.gz"
+    sha256 "a8c255c66fafb1e499c9351d0bf32ff2d8a0321595ebac3b93713656d2436f54"
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
-    sha256 "5cfb1b9148b5b086569baec03f20d7b6bf3bcacc9a42bebf87ffaaca362f6346"
+    url "https://files.pythonhosted.org/packages/48/c8/6260f8ccc11f0917360fc0da435c5c9c7504e3db174d5a12a1494887b045/attrs-24.3.0.tar.gz"
+    sha256 "8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff"
   end
 
   resource "charset-normalizer" do
